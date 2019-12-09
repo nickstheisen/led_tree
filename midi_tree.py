@@ -40,7 +40,7 @@ class MidiHandler(object):
         self.list = []
         self.fader_value = 127
         self.notes = np.zeros((60, 3), dtype=np.uint8)
-        self.ledcontroller = LEDController(60, port="/dev/ttyUSB5")
+        self.ledcontroller = LEDController(60, port="/dev/led_tree")
         self.ledcontroller.all_off()
         self.mode = "COLOR"
 
