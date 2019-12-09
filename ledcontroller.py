@@ -30,12 +30,15 @@ class LEDController:
     def all_on(self):
         self.conf = np.full((self.led_count, 3), 254, dtype=np.uint8)
         self.send()
-        time.sleep(3);
 
     def all_off(self):
         self.conf = np.zeros((self.led_count, 3), dtype=np.uint8)
         self.send()
-        time.sleep(3);
+
+    def set_single_led(led_id, value=[254,254,254]):
+        self.conf = np.zeros((self.led_count, 3), dtype=np.uint8)
+        self.conf[led_id] = value
+        self.send()
 
     def set_config(self, config):
         if self.conf.shape != config.shape:
