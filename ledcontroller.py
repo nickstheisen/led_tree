@@ -35,7 +35,7 @@ class LEDController:
         self.conf = np.zeros((self.led_count, 3), dtype=np.uint8)
         self.send()
 
-    def set_single_led(led_id, value=[254,254,254]):
+    def set_single_led(self, led_id, value=[254,254,254]):
         self.conf = np.zeros((self.led_count, 3), dtype=np.uint8)
         self.conf[led_id] = value
         self.send()

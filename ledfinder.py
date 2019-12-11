@@ -16,7 +16,11 @@ class LEDFinder:
         regions = self._getBrightRegions(grey_img, margin, vis)
 
         # select regions based on their aspect ratios
-        led_region = self._filter_regions_ar(regions)
+        led_region = None
+        if regions:
+            led_region = self._filter_regions_ar(regions)
+        else:
+            return None
 
         if(vis):
             if(led_region):
