@@ -32,6 +32,9 @@ def calibrate(numleds, videodevnumber=0, minpixels=20):
 
         # find ledposition
         coords = ledf.find_led_coords(img)
+        img = cv2.circle(coords, 3, (0,0,255), 2)
+        cv2.imshow(img)
+        cv2.waitKey(0)
         time.sleep(2)
 
         ledc.all_off()

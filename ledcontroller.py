@@ -41,6 +41,8 @@ class LEDController:
         self.send()
 
     def set_config(self, config):
+        if np.array_equal(config, self.conf):
+            return
         if self.conf.shape != config.shape:
             print("Wrong shape: {}. Correct shape: {}".format(self.conf.shape, config.shape))
             return
